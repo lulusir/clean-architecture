@@ -1,4 +1,6 @@
+English | [简体中文](./README.zh-CN.md)
 # Clean Architecture
+
 ## Introduction to Clean Architecture
 Clean Architecture is a software architecture pattern proposed by Robert C. Martin. Its purpose is to separate an application into two parts - the internal and external - to make the system easier to understand, maintain, and expand. The architecture is divided into four layers, starting from the lowest to the highest level: Entity, Repository, Use Case, and Presentation.
 
