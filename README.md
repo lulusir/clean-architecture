@@ -1,32 +1,34 @@
 # Clean Architecture
+## Introduction to Clean Architecture
+Clean Architecture is a software architecture pattern proposed by Robert C. Martin. Its purpose is to separate an application into two parts - the internal and external - to make the system easier to understand, maintain, and expand. The architecture is divided into four layers, starting from the lowest to the highest level: Entity, Repository, Use Case, and Presentation.
 
-## Clean Architecture 简介
-[Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) 是由 Robert C. Martin 提出的一种软件架构模式，目的是将应用程序分离为内部和外部两个部分，使得系统更加容易理解、维护和扩展。该架构将系统分为四个层次，从最底层到最高层分别为：实体层、仓储层、用例层和表示层。
+In this architecture, the Entity layer contains entity objects and related business rules and logic. The Repository layer is responsible for data persistence and retrieval. The Use Case layer contains the system's use cases or operations, while the Presentation layer is responsible for interacting with the user interface.
 
-在该架构中，实体层包含了实体对象以及与之相关的业务规则和逻辑。仓储层负责持久化和检索数据，用例层包含了系统的用例或操作，表示层则负责与用户界面的交互。
 
 ![image](https://lulusir.github.io/clean-js/CleanArchitecture.jpg)
+## Project Overview
+This is a TypeScript project example based on the Clean Architecture pattern. The project uses a Monorepo structure and is managed using Rush.js. The server folder contains three sub-projects - core, koa, and nestjs-app. Core is the core business logic, koa is a web project using Koa and Prisma as the underlying framework, and nestjs-app is a project using Nest.js and TypeORM as the underlying framework. The goal is to demonstrate how the same business logic can be bridged to different frameworks.
 
-## 项目介绍
-这是一个基于 Clean Architecture架构模式的 TypeScript 项目例子。该项目采用了 Monorepo 结构，使用 Rush.js 进行管理。在 server 文件夹中包含了三个子项目，分别为 core、koa 和 nestjs-app，其中 core 为核心业务逻辑，koa是使用koa+prisma的为底层框架web项目，nestjs-app是使用nestjs + typeorm为底层框架的项目。目的是演示相同的业务逻辑如何桥接不同的框架。
-
-整个项目是基于 Clean Architecture 架构设计而来。其中的基本思想是将应用程序分成四个层级，每个层级都有它自己的职责和规则，以实现更好的可维护性和可测试性：  
-
-- core：core为核心业务逻辑的代码
-  - Domain: 存放实体相关的代码，如业务具体的 model 等
-  - Use Cases: 存放业务逻辑相关的代码，如处理业务逻辑、数据验证、调用 Repository 等
-  - Repository: 存放和外部存储系统的相关接口
-
-- koa/nestjs-app: core的实际消费者
-  - 根据core的接口实现具体的Router，Repository
+The entire project is designed based on the Clean Architecture pattern, which separates an application into four hierarchical layers, each with its own responsibilities and rules to achieve better maintainability and testability:
 
 
-### 项目特点
-- 使用 DDD 和 Clean Architecture 的思想，将业务逻辑与技术实现分离。
-- 使用 monorepo 项目结构，方便管理多个相关的项目。
-- 提供了多个示例应用程序，方便快速上手。
-- 基于 TypeScript，提高代码可读性和可维护性。
-### 项目结构
+Core:
+- Contains the core business logic code
+- Domain: Stores entity-related code, such as specific business models
+- Use Cases: Stores business logic-related code, such as handling business logic, data validation, and calling the Repository
+- Repository: Stores interfaces related to external storage systems
+
+Koa/nestjs-app:
+- The actual consumer of Core
+- Implements specific Routers and Repositories based on Core's interfaces
+
+## Project Features
+- Uses Domain-Driven Design (DDD) and Clean Architecture to separate business logic from technical implementation.
+- Uses Monorepo project structure for managing multiple related projects.
+- Provides multiple sample applications for quick getting started.
+- Based on TypeScript for improved code readability and maintainability.
+
+### Project Structure
 ```
 ├── server
 │   ├── core // 核心业务逻辑
@@ -49,53 +51,36 @@
 ```
 
 
+### Functionality:
+> Implements post creation and browsing functionality
+1. User creation and query
+2. Post publishing, editing, querying, and deleting
 
 
-### 功能：
-> 实现一个帖子发布，浏览功能
-1. 用户创建，查询
-2. 帖子的发布，编辑，查询，删除
-
-
-### 如何开始
-1. 安装 Rush.js
+### Getting Started
+1. Install Rush.js
 ```bash
 npm install -g @microsoft/rush
 ```
-2. 下载依赖
+2. Download dependencies
 ```bash
 rush update
 ```
-3. 下载依赖
-```bash
-rush update
-```
-4. 构建core
+3. Build Core
 ```bash
 cd server/core
 npm build
 
 rush update
 ```
-5. 启动 Koa 应用
+4. Start Koa Application
 ```bash
 cd server/koa
 npm start
 ```
-6. 启动 Nest.js 应用
+5. Start Nest.js Application
 ```bash
 cd server/nestjs-app
 npm start
 ```
 
-
-#### 如何贡献
-如果你想为该项目贡献代码，请遵循以下步骤：
-
-1. fork 该项目并将代码下载到本地
-
-2. 创建新分支并进行修改
-
-3. 提交修改并创建 pull request
-
-4. 我们会尽快审阅你的修改并进行合并。
