@@ -12,15 +12,13 @@
 
 整个项目是基于 Clean Architecture 架构设计而来。其中的基本思想是将应用程序分成四个层级，每个层级都有它自己的职责和规则，以实现更好的可维护性和可测试性：  
 
-core：
-- core为核心业务逻辑的代码
-- Domain: 存放实体相关的代码，如业务具体的 model 等
-- Use Cases: 存放业务逻辑相关的代码，如处理业务逻辑、数据验证、调用 Repository 等
-- Repository: 存放和外部存储系统的相关接口
+- core：core为核心业务逻辑的代码
+  - Domain: 存放实体相关的代码，如业务具体的 model 等
+  - Use Cases: 存放业务逻辑相关的代码，如处理业务逻辑、数据验证、调用 Repository 等
+  - Repository: 存放和外部存储系统的相关接口
 
-koa/nestjs-app:
-- core的实际消费者
-- 根据core的接口实现具体的Router，Repository
+- koa/nestjs-app: core的实际消费者
+  - 根据core的接口实现具体的Router，Repository
 
 
 ### 项目特点
