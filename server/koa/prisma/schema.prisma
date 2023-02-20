@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model post_orm_entity {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(255)
+  authorId  Int
+  content   String   @db.VarChar(255)
+  updateAt  DateTime @db.Timestamp(0)
+  createdAt DateTime @db.Timestamp(0)
+}
+
+model user_orm_entity {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  email String @db.VarChar(255)
+}

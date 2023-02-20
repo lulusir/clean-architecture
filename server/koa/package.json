@@ -1,0 +1,28 @@
+{
+  "name": "koa-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "nodemon",
+    "migrate:dev:create": "prisma migrate dev --create-only --preview-feature ",
+    "prisma:generate": "prisma generate"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "~12.0.0",
+    "@types/koa__router": "~12.0.0",
+    "koa": "~2.14.1",
+    "core": "workspace:*",
+    "nodemon": "~2.0.20",
+    "prisma": "~4.10.1",
+    "@prisma/client": "~4.10.1",
+    "koa-body": "~6.0.1",
+    "@types/node": "~18.13.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.5"
+  }
+}
